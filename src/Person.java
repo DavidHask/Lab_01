@@ -97,7 +97,29 @@ public class Person {
 
     public String toJSON() {
 
-        return "{ \"ID\":\"" + ID + "\"";
+        return "{\"people\":[" + "{ \"ID\":\"" + ID + "\", \"firstName\":\"" + firstName + "\", \"lastName\":\"" +
+                lastName + "\", \"title\":\"" + title + "\", \"YOB\":" + YOB + " } ]}";
+
+    }
+
+    public String toXML() {
+
+        /*
+        <employees>
+  <employee>
+    <firstName>John</firstName> <lastName>Doe</lastName>
+  </employee>
+  <employee>
+    <firstName>Anna</firstName> <lastName>Smith</lastName>
+  </employee>
+  <employee>
+    <firstName>Peter</firstName> <lastName>Jones</lastName>
+  </employee>
+</employees>
+         */
+
+        return "<people> <person> <ID>" + ID + "</ID> <firstName>" + firstName + "</firstName> <lastName>" +
+                lastName + "</lastName> <title>" + title + "</title> <YOB>" + YOB + "</YOB> </person> </people>";
 
     }
 
