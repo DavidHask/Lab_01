@@ -81,12 +81,12 @@ public class Person {
 
     }
 
-    public String getAge() {
-        return String.valueOf(currentDate.getYear() - YOB);
+    public int getAge() {
+        return currentDate.getYear() - YOB;
     }
 
-    public String getAge(int year) {
-        return String.valueOf(year - YOB);
+    public int getAge(int year) {
+        return year - YOB;
     }
 
     public String toCSV() {

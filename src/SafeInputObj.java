@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class SafeInputObj {
 
-    Scanner pipe;
+    static Scanner pipe;
 
     public SafeInputObj(Scanner pipe) {
         this.pipe = pipe;
@@ -15,7 +15,7 @@ public class SafeInputObj {
      * @return a String response that is not zero length
      */
     
-    public String getNonZeroLenString(String prompt)
+    public static String getNonZeroLenString(String prompt)
     {
         String retString = "";
         do
@@ -35,7 +35,7 @@ public class SafeInputObj {
      * @param high - high end of inclusive range
      * @return - int value within the inclusive range
      */
-    public int getRangedInt(String prompt, int low, int high)
+    public static int getRangedInt(String prompt, int low, int high)
     {
         int retVal = 0;
         String trash = "";
@@ -73,7 +73,7 @@ public class SafeInputObj {
      * @param prompt - input prompt msg should not include range info
      * @return - unconstrained int value 
      */
-    public int getInt(String prompt)
+    public static int getInt(String prompt)
     {
         int retVal = 0;
         String trash = "";
@@ -107,7 +107,7 @@ public class SafeInputObj {
      * @param high - high value inclusive
      * @return  - double value within the specified inclusive range
      */
-    public double getRangedDouble(String prompt, int low, int high)
+    public static double getRangedDouble(String prompt, int low, int high)
     {
         double retVal = 0;
         String trash = "";
@@ -145,7 +145,7 @@ public class SafeInputObj {
      * @param prompt - input prompt msg should not contain range info
      * @return  - an unconstrained double value 
      */
-    public double getDouble(String prompt)
+    public static double getDouble(String prompt)
     {
         double retVal = 0;
         String trash = "";
@@ -176,7 +176,7 @@ public class SafeInputObj {
      * @param prompt -input prompt msg for user does not need [Y/N]
      * @return - true for yes false for no
      */
-    public boolean getYNConfirm(String prompt)
+    public static boolean getYNConfirm(String prompt)
     {
         boolean retVal = true;
         String response = "";
@@ -213,7 +213,7 @@ public class SafeInputObj {
      * @return a String that matches the RegEx pattern supplied
      */
 
-    public String getRegExString(String prompt, String regExPattern)
+    public static String getRegExString(String prompt, String regExPattern)
     {
         String response = "";
         boolean gotAVal = false;

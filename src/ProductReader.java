@@ -11,7 +11,7 @@ import static java.nio.file.StandardOpenOption.CREATE;
  *
  * @author wulft
  */
-public class PersonReader
+public class ProductReader
 {
 
     /**
@@ -24,23 +24,23 @@ public class PersonReader
         File selectedFile;
         String rec = "";
         ArrayList<String> lines = new ArrayList<>();
-        ArrayList<Person> people = new ArrayList<>();
+        ArrayList<Product> products = new ArrayList<>();
 
         /*
 
         Here is the data file we are reading:
-        000001, Bilbo, Baggins, Esq., 1060
-        000002, Frodo, Baggins, Esq., 1120
-        000003, Samwise, Gamgee, Esq., 1125
-        000004, Peregrin, Took, Esq., 1126
-        000005, Meridoc, Brandybuck, Esq., 1126
+        000001, Pipeweed, Long Bottom Leaf, 600.0
+        000002, Lembas, Elven Wayfare Bread, 200.0
+        000003, Wine, Woodland Elf Wine, 400.0
+        000004, Mushrooms, Farmer Took’s Finest, 125.0
+        000005, Mithril, Enchanted Dwarven Armor, 3000.0
 
         */
 
-        final int FIELDS_LENGTH = 5;
+        final int FIELDS_LENGTH = 4;
 
-        String id, firstName, lastName, title;
-        int yob;
+        String id, name, description;
+        double cost;
 
 
         try
@@ -89,16 +89,15 @@ public class PersonReader
 
                     if(fields.length == FIELDS_LENGTH)
                     {
-                        id        = fields[0].trim();
-                        firstName = fields[1].trim();
-                        lastName  = fields[2].trim();
-                        title     = fields[3].trim();
-                        yob       = Integer.parseInt(fields[4].trim());
+                        id           = fields[0].trim();
+                        name         = fields[1].trim();
+                        description  = fields[2].trim();
+                        cost         = Double.parseDouble(fields[3].trim());
 
-                        Person person = new Person(id, firstName, lastName, title, yob);
-                        people.add(person);
+                        Product product = new Product(id, name, description, cost);
+                        products.add(product);
 
-                        System.out.printf("\n%-8s%-25s%-25s%-6s%6d", id, firstName, lastName, title, yob);
+                        System.out.printf("\n%-8s%-25s%-25s%-6.2f", id, name, description, cost);
                     }
                     else
                     {
@@ -108,8 +107,8 @@ public class PersonReader
                 }
 
                 System.out.println("\n");
-                for(Person peopleRead : people) {
-                    System.out.println(peopleRead);
+                for(Product productRead : products) {
+                    System.out.println(productRead);
                 }
 
             }
